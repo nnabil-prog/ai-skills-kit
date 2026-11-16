@@ -1,6 +1,13 @@
 # Changelog
 
-Changes to the AI Skills Kit that you can see on the site or in the install script.
+Changes to the AI Skills Kit that you can see on the site or in the installer.
+
+## 2026-11-17 (update 5)
+
+### 🔧 Improvements
+
+- **One way to install**: The skill picker is now the only installer. Drop [install-skills.md](https://nnabil-prog.github.io/ai-skills-kit/install-skills.md) into any AI chat, or copy the prompt from the page into Claude Code. The kit no longer has the `curl` install command or `install.sh`.
+- **Kit skills only**: The lists no longer show the skills that come with a claude.ai account. These are docx, pdf, pptx, xlsx, docs, google-workspace, consolidate-memory, import-memory, setup-claude, setup-cowork, skill-creator, explain-usage and morning. The Skills list shows 20 skills.
 
 ## 2026-11-17 (update 4)
 

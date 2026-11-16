@@ -234,7 +234,3 @@ At the end of the script, run `rm -rf "${WORK:?}"`. Then write `echo "Done. Rest
 1. Read the script output.
 2. Tell the user the result for each item: installed (an `OK:` line) or failed (a `FAILED:` line, with the error text).
 3. Tell the user to restart Claude Code. Claude Code loads new skills and plugins only at start.
-
-## Skills that this file does not install
-
-These skills come with a claude.ai account: consolidate-memory, docs, docx, explain-usage, google-workspace, import-memory, morning, pdf, pptx, setup-claude, setup-cowork, skill-creator, xlsx. If the user asks for one of them, tell the user to turn it on at claude.ai, in Customize. Do not try other methods.
