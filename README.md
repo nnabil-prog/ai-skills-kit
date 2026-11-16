@@ -14,12 +14,14 @@ curl -fsSL https://nnabil-prog.github.io/ai-skills-kit/install.sh | bash
 
 The script: [docs/install.sh](docs/install.sh)
 
-### Install only some skills with Claude
+### Pick skills with any AI
 
-Give Claude [docs/install-skills.md](docs/install-skills.md) and name the skills you want, or say "all". For example, paste this into Claude Code:
+Drop [install-skills.md](docs/install-skills.md) into any AI chat. The AI shows a list with a checkbox next to each skill and an "All" option. Pick what you want, and the AI installs it. If the AI can't run commands, it gives you a script to run.
+
+In Claude Code you can paste the link instead:
 
 ```text
-Read https://nnabil-prog.github.io/ai-skills-kit/install-skills.md and install impeccable and changelog-generator.
+Follow https://nnabil-prog.github.io/ai-skills-kit/install-skills.md
 ```
 
 ## Skills · 33

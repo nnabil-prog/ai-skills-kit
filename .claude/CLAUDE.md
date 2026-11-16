@@ -6,7 +6,7 @@ This repo is the source of the public site https://nnabil-prog.github.io/ai-skil
 
 - `docs/index.html`: the page.
 - `docs/install.sh`: the install script. The page shows the command `curl -fsSL <site>/install.sh | bash` and loads the script text from this file. Do not copy the script into `index.html`.
-- `docs/install-skills.md`: the instructions that a user gives to Claude to install some skills or all skills.
+- `docs/install-skills.md`: a file that a user drops into any AI chat. The AI shows a checklist of the skills with an "All" option, then installs the selected items.
 - `docs/CHANGELOG.md`: the list of changes that users can see.
 - `README.md`: the same text and tables as the page, in Markdown.
 - `docs/.nojekyll`: stops GitHub Pages from changing the `.md` files. Do not remove it.
@@ -28,12 +28,13 @@ Use these skills for each task in this repo. Load each skill before you start th
 
 `docs/install-skills.md` must list each skill and plugin that the kit contains. When you add a skill or a plugin to the kit, add it to `install-skills.md` in the same commit:
 
-1. Add a row to Table 1 for a skill that you copy from a repo. Write the folder name, the repo and the path in the repo.
-2. Add a row to Table 2 for a Python clean code skill that gets the `py-` prefix.
-3. Add a row to Table 3 for a plugin. Write each `claude plugin` command in sequence.
-4. Add the name to Table 4 for a skill that comes only from a claude.ai account.
-5. If the new item needs an extra step after the copy, add an "Extra step for <name>" section under Step 3.
-6. Clone the repo into a temporary folder. Make sure that `SKILL.md` exists at the path that you wrote.
+1. Add the item to the Picker list in Step 1, to the Method B checklist and to one question in the Method A table. A Method A question has at most 4 options. If all 3 skill questions are full, tell the user, because the layout must change. Update the "Installs items 1 to N" text and each "items 1 to N" text.
+2. Add a row to Table 1 for a skill that you copy from a repo. Write the item number, the folder name, the repo and the path in the repo.
+3. Add a row to Table 2 for a Python clean code skill that gets the `py-` prefix.
+4. Add a row to Table 3 for a plugin. Write the item number and each `claude plugin` command in sequence.
+5. Add the name to the "Skills that this file does not install" list for a skill that comes only from a claude.ai account. Do not add it to the Picker list.
+6. If the new item needs an extra step after the copy, add an "Extra step for <name>" section under Step 4.
+7. Clone the repo into a temporary folder. Make sure that `SKILL.md` exists at the path that you wrote.
 
 When you remove a skill or a plugin from the kit, remove its row from `install-skills.md` in the same commit.
 

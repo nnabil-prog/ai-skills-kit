@@ -2,6 +2,17 @@
 
 Changes to the AI Skills Kit that you can see on the site or in the install script.
 
+## 2026-11-17 (update 4)
+
+### ✨ New
+
+- **Skill picker for any AI**: Drop [install-skills.md](https://nnabil-prog.github.io/ai-skills-kit/install-skills.md) into any AI chat. The AI shows a list with a checkbox next to each skill and an "All" option. Select the skills that you want, and the AI installs them.
+- **Script for chat-only AIs**: If the AI cannot run commands on your computer, it gives you one script to run instead.
+
+### 🔧 Improvements
+
+- **Shorter example**: The README example now fits on one line.
+
 ## 2026-11-17 (update 3)
 
 ### 🔧 Improvements
