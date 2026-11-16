@@ -2,6 +2,14 @@
 
 Changes to the AI Skills Kit that you can see on the site or in the install script.
 
+## 2026-11-17 (update 3)
+
+### 🔧 Improvements
+
+- **One list of skills**: The skills from your claude.ai account are now in the Skills list, next to the other skills. Each row says where the skill comes from.
+- **One list of plugins**: The Design and frontend-design plugins are now in the Plugins list. The list shows 4 plugins with 32 skills.
+- **Shorter README**: The README no longer has the "From your account" section or the repo layout table.
+
 ## 2026-11-17 (later)
 
 ### ✨ New
