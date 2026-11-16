@@ -74,7 +74,7 @@ Use these rules to find the selected items in the user's message or answer:
 1. If the text contains checklist lines, select each line that starts with `- [x]` or `- [X]`. Ignore each line that starts with `- [ ]`. Do not use rules 2 to 5.
 2. Each complete number from 0 to 12 selects that item. A number is complete when no digit comes directly before or after it. Thus `10` selects item 10 only.
 3. Each item name from the Picker list selects that item. Compare names without case. The text "(plugin)" is not necessary. Thus "design" selects item 12, and "typescript clean code" selects item 1.
-4. Select all items 1 to 12 if the text contains the number `0`, or the complete word `all` or `everything`, and rules 2 and 3 find no other item. Example: "install all" selects all items. "install all the Python skills" selects item 2 only. If you are not sure, ask the user.
+4. The number `0` and the complete words `all` and `everything` select all items 1 to 12. This occurs only if rules 2 and 3 find no other item. Example: "install all" selects all items. "install all the Python skills" selects item 2 only. If you are not sure, ask the user.
 5. Ignore other words, for example "install", "please", "and", "the" and "skills".
 6. If a number is larger than 12, or a name is almost the same as an item name, do not guess. Tell the user which part did not match. Ask the user if you can install only the items that did match, or if the user wants to answer again.
 
