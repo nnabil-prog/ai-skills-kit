@@ -16,6 +16,11 @@ Use these skills for each task in this repo. Load each skill before you start th
 1. `asd-ste100`: Load it before you write any text in this repo. This includes `CHANGELOG.md`, `README.md`, this file, commit messages and the help text in `index.html`. Use Strict mode for `install.sh` messages and for this file. Use STE-flavored mode for `CHANGELOG.md`, `README.md` and the page text.
 2. `changelog-generator`: Load it each time you change `index.html` or `install.sh`. Add an entry to `CHANGELOG.md` in the same commit as the change. Write the entry for a user of the kit, not for a developer.
 3. `impeccable` and `make-interfaces-feel-better`: Load them before you change the layout, the colors or the style of `index.html`.
+4. `design:accessibility-review`: Load it after you change `index.html`. Fix each WCAG 2.1 AA problem that it finds before you commit.
+5. `design:ux-copy`: Load it before you change a button label, a status message or help text in `index.html`. Then apply `asd-ste100` to the result.
+6. `security-review`: Load it before you commit a change to `install.sh`. Users run this script with `curl | bash`. The script must clone only from the repos that it names. It must not run downloaded code without a check.
+7. `superpowers:systematic-debugging`: Load it when the site does not update, the install command fails or the page shows an error. Find the cause before you change a file.
+8. `superpowers:verification-before-completion`: Load it before you tell the user that you completed a change. Open the live site and make sure that the change shows there.
 
 ## When you change the list of skills or plugins
 
