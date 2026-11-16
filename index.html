@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude Skills Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+  :root {
+    --bg: #f5f7f8; --surface: #fff; --ink: #1a1f24; --muted: #5a6470; --rule: #dbe1e5;
+    --accent: #0d6b70; --code-bg: #eceff2; --stripe: #e6f0f0;
+    --body: "Anthropic Serif", "Copernicus", "Tiempos Text", "Source Serif 4", Georgia, serif;
+    --display: var(--body); --ui: var(--body); --mono: var(--body);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #111518; --surface: #182024; --ink: #e5eaed; --muted: #9aa5ae; --rule: #2a343a;
+      --accent: #5ec5c9; --code-bg: #0c1013; --stripe: #1f2c31; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #111518; --surface: #182024; --ink: #e5eaed; --muted: #9aa5ae; --rule: #2a343a;
+    --accent: #5ec5c9; --code-bg: #0c1013; --stripe: #1f2c31; color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 400 0.9375rem/1.6 var(--body); padding: 40px clamp(16px, 4vw, 56px) 64px; }
+  main { max-width: 1600px; margin: 0 auto; display: grid; gap: 40px; }
+  h1, h2 { font-family: var(--display); font-weight: 600; margin: 0; }
+  h1 { font-size: clamp(2rem, 5vw, 2.5rem); line-height: 1.05; }
+  h2 { font-size: 1.25rem; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+  h2 span { font: 400 0.8125rem var(--mono); color: var(--muted); }
+  p { margin: 0; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  .muted { color: var(--muted); }
+  section, header { display: grid; gap: 14px; min-width: 0; }
+  button {
+    justify-self: start; font: 500 0.875rem var(--ui); padding: 8px 16px; border-radius: 6px; cursor: pointer;
+    border: 1px solid var(--accent); background: var(--accent); color: var(--bg);
+  }
+  button:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .status { font-size: 0.8125rem; color: var(--accent); min-height: 1.2em; }
+  .oneliner { margin: 0; padding: 10px 14px; background: var(--code-bg); border-radius: 8px; font: 400 0.8125rem/1.55 var(--mono); overflow-wrap: anywhere; }
+  details { border: 1px solid var(--rule); border-radius: 8px; background: var(--surface); min-width: 0; }
+  summary { cursor: pointer; padding: 10px 14px; font-size: 0.875rem; color: var(--muted); }
+  pre { margin: 0; padding: 14px 16px; overflow: auto; background: var(--code-bg); border-radius: 0 0 8px 8px; font: 400 0.8125rem/1.55 var(--mono); }
+  dl { margin: 0; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; display: grid; grid-template-columns: minmax(0, max-content) minmax(0, 1fr); }
+  .row { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; gap: 6px 28px; padding: 12px 16px; background: var(--surface); }
+  .row:nth-child(even) { background: var(--stripe); }
+  dt { font-family: var(--mono); font-size: 0.9375rem; font-weight: 600; overflow-wrap: anywhere; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+  .cmd { font: 500 0.8125rem var(--mono); padding: 1px 8px; border-radius: 4px; background: var(--accent); color: var(--bg); white-space: nowrap; }
+  .cmds { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .cmds code { font: 400 0.8125rem var(--mono); padding: 1px 8px; border-radius: 4px; border: 1px solid var(--accent); color: var(--accent); white-space: nowrap; }
+  .cmds code:first-child { background: var(--accent); color: var(--bg); }
+  dd { margin: 0; color: var(--muted); }
+  dd a { font-family: var(--mono); font-size: 0.8125rem; overflow-wrap: anywhere; }
+  @media (max-width: 600px) { dl { grid-template-columns: minmax(0, 1fr); } .cmd { white-space: normal; overflow-wrap: anywhere; } }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+  .chips li { font: 400 0.8125rem var(--mono); padding: 3px 9px; border: 1px solid var(--rule); border-radius: 4px; background: var(--surface); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Claude Skills Kit</h1>
+    <p class="muted">Neil's own skills and plugins, and one command that puts them on another PC. Skills that ship with the app aren't listed.</p>
+  </header>
+
+  <section aria-labelledby="install">
+    <h2 id="install">Install on another PC</h2>
+    <p>Sign in to Claude with the same account, paste this into a terminal (Git Bash on Windows), then restart Claude. Needs git.</p>
+    <p class="oneliner" id="oneliner"></p>
+    <button type="button" id="copy">Copy install command</button>
+    <span class="status" id="status" role="status"></span>
+    <details><summary>Show the script</summary><pre id="script">Loading…</pre></details>
+  </section>
+
+  <section aria-labelledby="own">
+    <h2 id="own">Skills <span>~/.claude/skills · 20</span></h2>
+    <dl>
+      <div class="row"><dt>TypeScript clean code</dt><dd>boy-scout, clean-comments, clean-functions, clean-general, clean-names, clean-tests, typescript-clean-code. <a href="https://github.com/ertugrul-dmr/clean-code-skills">ertugrul-dmr/clean-code-skills</a></dd></div>
+      <div class="row"><dt>Python clean code</dt><dd>python-clean-code, plus py-boy-scout, py-clean-comments, py-clean-functions, py-clean-general, py-clean-names, py-clean-tests. The upstream Python set reuses the TypeScript names, so the script installs it under py- names and points py-boy-scout at them. Same repo.</dd></div>
+      <div class="row"><dt>apex <code class="cmd">/apex</code></dt><dd>Staged implementation with checkpoints, tests and review. Runs only by its command. <a href="https://github.com/melvynx/aiblueprint">melvynx/aiblueprint</a></dd></div>
+      <div class="row"><dt>thermo-nuclear-code-quality-review <code class="cmd">/thermo-nuclear-code-quality-review</code></dt><dd>Strict maintainability review. Runs only by its command. <a href="https://github.com/cursor/plugins">cursor/plugins</a></dd></div>
+      <div class="row"><dt>impeccable</dt><dd>Design, critique and polish UI. The script also fetches its helper engine into ~/.impeccable from the project's GitHub releases and checks it against the pinned checksum. <a href="https://github.com/pbakaus/impeccable">pbakaus/impeccable</a></dd></div>
+      <div class="row"><dt>make-interfaces-feel-better</dt><dd>UI polish details. <a href="https://github.com/jakubkrehel/make-interfaces-feel-better">jakubkrehel/make-interfaces-feel-better</a></dd></div>
+      <div class="row"><dt>changelog-generator</dt><dd>User-facing changelogs from git history. <a href="https://github.com/ComposioHQ/awesome-claude-skills">ComposioHQ/awesome-claude-skills</a></dd></div>
+      <div class="row"><dt>asd-ste100</dt><dd>Rewrites instructions, prompts, error messages and status reports in Simplified Technical English so an agent or a person can't misread them. The script also adds a rule to ~/.claude/CLAUDE.md so every session uses it. Its optional linter needs Python. <a href="https://github.com/danyuchn/asd-ste100-skill">danyuchn/asd-ste100-skill</a></dd></div>
+    </dl>
+  </section>
+
+  <section aria-labelledby="plugins">
+    <h2 id="plugins">Plugins <span>24 skills</span></h2>
+    <dl>
+      <div class="row"><dt>superpowers</dt><dd>Planning, TDD, debugging, code review and git-worktree workflows (15 skills). Official marketplace.</dd></div>
+      <div class="row"><dt>understand-anything</dt><dd>Turns a codebase or wiki into an interactive knowledge graph and dashboard (9 skills). Run /understand first to build the graph; the first run on a big repo uses a lot of tokens. Its hooks need Node.js. <a href="https://github.com/Egonex-AI/Understand-Anything">Egonex-AI/Understand-Anything</a><span class="cmds"><code>/understand</code><code>/understand-dashboard</code><code>/understand-chat</code><code>/understand-explain</code><code>/understand-diff</code><code>/understand-domain</code><code>/understand-onboard</code><code>/understand-knowledge</code><code>/understand-figma</code></span></dd></div>
+    </dl>
+  </section>
+
+  <section aria-labelledby="account">
+    <h2 id="account">From your account <span>arrive with sign-in</span></h2>
+    <p class="muted">Skills and plugins added on claude.ai (Customize). They follow your sign-in to the app and claude.ai.</p>
+    <ul class="chips"><li>asd-ste100</li><li>consolidate-memory</li><li>docs</li><li>docx</li><li>explain-usage</li><li>google-workspace</li><li>import-memory</li><li>morning</li><li>pdf</li><li>pptx</li><li>setup-claude</li><li>setup-cowork</li><li>skill-creator</li><li>xlsx</li></ul>
+    <dl>
+      <div class="row"><dt>Design</dt><dd>Anthropic's design plugin (7 skills): critique, accessibility, design systems, UX copy, user research and developer handoff. It can use your Slack, Figma, Notion and other connectors if you connect them. <a href="https://github.com/anthropics/knowledge-work-plugins">anthropics/knowledge-work-plugins</a><span class="cmds"><code>/design-critique</code><code>/accessibility-review</code><code>/design-system</code><code>/design-handoff</code><code>/ux-copy</code><code>/user-research</code><code>/research-synthesis</code></span></dd></div>
+      <div class="row"><dt>frontend-design</dt><dd>Anthropic's plugin for distinctive visual direction and typography when building or reshaping UI (1 skill). <a href="https://github.com/anthropics/claude-plugins-official">anthropics/claude-plugins-official</a><span class="cmds"><code>/frontend-design</code></span></dd></div>
+    </dl>
+  </section>
+</main>
+<script>
+  // The install command always points at install.sh next to this page, so editing that one file updates both.
+  const scriptUrl = new URL('install.sh', location.href).href;
+  const command = `curl -fsSL ${scriptUrl} | bash`;
+  const status = document.getElementById('status');
+  document.getElementById('oneliner').textContent = command;
+
+  fetch(scriptUrl, { cache: 'no-cache' })
+    .then(r => r.ok ? r.text() : Promise.reject())
+    .then(text => { document.getElementById('script').textContent = text; })
+    .catch(() => { document.getElementById('script').textContent = `Couldn't load the script. Open ${scriptUrl}`; });
+
+  document.getElementById('copy').addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(command);
+      status.textContent = 'Copied. Paste it into a terminal and press Enter.';
+    } catch {
+      const range = document.createRange();
+      range.selectNodeContents(document.getElementById('oneliner'));
+      getSelection().removeAllRanges();
+      getSelection().addRange(range);
+      status.textContent = 'Copying is blocked here. The command is selected: press Ctrl+C.';
+    }
+  });
+</script>
+</body>
+</html>
