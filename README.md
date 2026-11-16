@@ -19,7 +19,7 @@ Follow https://nnabil-prog.github.io/ai-skills-kit/install-skills.md
 | Skill | What it does | Source |
 |---|---|---|
 | TypeScript clean code | boy-scout, clean-comments, clean-functions, clean-general, clean-names, clean-tests, typescript-clean-code. | [ertugrul-dmr/clean-code-skills](https://github.com/ertugrul-dmr/clean-code-skills) |
-| Python clean code | python-clean-code, plus py-boy-scout, py-clean-comments, py-clean-functions, py-clean-general, py-clean-names, py-clean-tests. The upstream Python set reuses the TypeScript names, so the installer puts it in under py- names and points py-boy-scout at them. | Same repo. |
+| Python clean code | python-clean-code, plus py-boy-scout, py-clean-comments, py-clean-functions, py-clean-general, py-clean-names, py-clean-tests. The upstream Python set reuses the TypeScript names, so the installer puts it in under py- names and points py-boy-scout at them. | [ertugrul-dmr/clean-code-skills](https://github.com/ertugrul-dmr/clean-code-skills) |
 | apex `/apex` | Staged implementation with checkpoints, tests and review. Runs only by its command. | [melvynx/aiblueprint](https://github.com/melvynx/aiblueprint) |
 | thermo-nuclear-code-quality-review `/thermo-nuclear-code-quality-review` | Strict maintainability review. Runs only by its command. | [cursor/plugins](https://github.com/cursor/plugins) |
 | impeccable | Design, critique and polish UI. The installer also fetches its helper engine into ~/.impeccable from the project's GitHub releases and checks it against the pinned checksum. | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) |

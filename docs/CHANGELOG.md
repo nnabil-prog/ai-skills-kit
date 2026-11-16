@@ -2,6 +2,12 @@
 
 Changes to the AI Skills Kit that you can see on the site or in the installer.
 
+## 2026-11-17 (update 6)
+
+### 🔧 Improvements
+
+- **Source link for Python clean code**: The Python clean code row now links to its source repo, ertugrul-dmr/clean-code-skills.
+
 ## 2026-11-17 (update 5)
 
 ### 🔧 Improvements
