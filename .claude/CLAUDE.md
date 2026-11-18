@@ -27,7 +27,7 @@ Use these skills for each task in this repo. Load each skill before you start th
 
 `docs/install-skills.md` must list each skill and plugin that the kit contains. When you add a skill or a plugin to the kit, add it to `install-skills.md` in the same commit:
 
-1. Add the item to the Picker list in Step 1, to the Method B checklist and to one question in the Method A table. A Method A question has at most 4 options. If all 3 skill questions are full, tell the user, because the layout must change. Update the "Installs items 1 to N" text and each "items 1 to N" text.
+1. Add the item to the Picker list in Step 1, to the Method B checklist and to one question in the Method A table. A Method A question has at most 4 options, and the call has at most 4 questions. Item 0 (All) is an option in the first question. If all 4 questions are full, tell the user, because the layout must change. Update the "Installs items 1 to N" text and each "items 1 to N" text.
 2. Add a row to Table 1 for a skill that you copy from a repo. Write the item number, the folder name, the repo and the path in the repo.
 3. Add a row to Table 2 for a Python clean code skill that gets the `py-` prefix.
 4. Add a row to Table 3 for a plugin. Write the item number and each `claude plugin` command in sequence.

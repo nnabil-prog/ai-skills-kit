@@ -2,6 +2,16 @@
 
 Changes to the AI Skills Kit that you can see on the site or in the installer.
 
+## 2026-11-18
+
+### ✨ New
+
+- **security-audit**: Cloudflare's security skill is now in the kit. Ask Claude a security question or ask for a focused review. Ask for an audit or a pen test to get the full six-phase audit with verified findings. Its validators need Node.js. Source: [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill).
+
+### 🔧 Improvements
+
+- **Picker groups**: In Claude Code, the picker now shows 4 groups: Review, Code & docs, Design and Workflow. "All" is the first option in the Review group.
+
 ## 2026-11-17 (update 6)
 
 ### 🔧 Improvements
