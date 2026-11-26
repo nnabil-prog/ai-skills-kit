@@ -14,7 +14,7 @@ In Claude Code you can paste the link instead:
 Follow https://nnabil-prog.github.io/ai-skills-kit/install-skills.md
 ```
 
-## Skills · 22
+## Skills · 23
 
 | Skill | What it does | Source |
 |---|---|---|
@@ -23,6 +23,7 @@ Follow https://nnabil-prog.github.io/ai-skills-kit/install-skills.md
 | apex `/apex` | Staged implementation with checkpoints, tests and review. Runs only by its command. | [melvynx/aiblueprint](https://github.com/melvynx/aiblueprint) |
 | thermo-nuclear-code-quality-review `/thermo-nuclear-code-quality-review` | Strict maintainability review. Runs only by its command. | [cursor/plugins](https://github.com/cursor/plugins) |
 | security-audit | Security guidance and vulnerability review for codebases, APIs, services, CLI tools, libraries and daemons. It runs the full six-phase audit only when you ask for an audit, a pen test or a full review. Its validators need Node.js. | [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) |
+| click-path-audit | Traces each button through its handler and the state it changes, to find actions that silently undo each other or leave the wrong final state. Use it when a button "does nothing" or after changes to shared state. | [affaan-m/ECC](https://github.com/affaan-m/ECC) (copy in [this repo](skills/click-path-audit/SKILL.md)) |
 | impeccable | Design, critique and polish UI. The installer also fetches its helper engine into ~/.impeccable from the project's GitHub releases and checks it against the pinned checksum. | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) |
 | make-interfaces-feel-better | UI polish details. | [jakubkrehel/make-interfaces-feel-better](https://github.com/jakubkrehel/make-interfaces-feel-better) |
 | changelog-generator | User-facing changelogs from git history. | [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) |

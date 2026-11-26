@@ -9,6 +9,7 @@ This repo is the source of the public site https://nnabil-prog.github.io/ai-skil
 - `docs/CHANGELOG.md`: the list of changes that users can see.
 - `README.md`: the same text and tables as the page, in Markdown.
 - `skills/`: skills that this repo is the source for. `install-skills.md` clones them from `nnabil-prog/ai-skills-kit`. When you change one, copy the change to the same folder in `~/.claude/skills`.
+  A skill that you copy from another repo keeps a `LICENSE` file from that repo and a `SOURCE.md` file with the exact commit. Do not change the skill text.
 - `docs/.nojekyll`: stops GitHub Pages from changing the `.md` files. Do not remove it.
 
 ## Skills to use in this repo

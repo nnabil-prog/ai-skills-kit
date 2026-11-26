@@ -14,13 +14,13 @@ Read the message that came with this file. Use the rules in 1c to find items in 
 
 ### 1b. Ask the question
 
-The Picker list below has 14 items and an "All" option. Ask the user to select one or more of them. Use Method A if you can. If you cannot, use Method B.
+The Picker list below has 15 items and an "All" option. Ask the user to select one or more of them. Use Method A if you can. If you cannot, use Method B.
 
 **Picker list**
 
 | Item | Name | What it does |
 |---|---|---|
-| 0 | All | Installs items 1 to 14. |
+| 0 | All | Installs items 1 to 15. |
 | 1 | TypeScript clean code | 7 skills: boy-scout, clean-comments, clean-functions, clean-general, clean-names, clean-tests, typescript-clean-code. |
 | 2 | Python clean code | 7 skills: python-clean-code and the py- versions of the 6 TypeScript skills. |
 | 3 | apex | Staged implementation with checkpoints, tests and review. Runs only by its command `/apex`. |
@@ -35,6 +35,7 @@ The Picker list below has 14 items and an "All" option. Ask the user to select o
 | 12 | Design (plugin) | Design critique, accessibility, design systems, UX copy, user research and handoff. 7 skills. |
 | 13 | security-audit | Security guidance and vulnerability review. Runs the full audit only when you ask for one. Its validators need Node.js. |
 | 14 | building-with-ai | Rules for choosing libraries, UI components and agent skills, with license checks and quality checks for UI and copy. |
+| 15 | click-path-audit | Traces each button through its handler to find actions that undo each other. Use it when a button does nothing. |
 
 **Method A: you have a tool that shows a question with checkboxes**
 
@@ -45,9 +46,9 @@ Use this method if you have a tool that asks the user a multiple-choice question
 | Which review skills? Select All to install every item. | Review | Yes | item 0 (All), items 3, 4 and 13 |
 | Which code and docs skills? | Code & docs | Yes | items 1, 2, 7 and 8 |
 | Which design skills? | Design | Yes | items 5, 6, 11 and 12 |
-| Which workflow skills and plugins? | Workflow | Yes | items 9, 10 and 14 |
+| Which workflow skills and plugins? | Workflow | Yes | items 9, 10, 14 and 15 |
 
-Use the name of each item as the option label. Use its "What it does" text as the option description. If the user selects All, select items 1 to 14 and ignore the other answers.
+Use the name of each item as the option label. Use its "What it does" text as the option description. If the user selects All, select items 1 to 15 and ignore the other answers.
 
 **Method B: you do not have that tool**
 
@@ -70,17 +71,18 @@ Which skills do you want to install? Reply with the numbers, for example "1, 5, 
 - [ ] 12. Design (plugin)
 - [ ] 13. security-audit
 - [ ] 14. building-with-ai
+- [ ] 15. click-path-audit
 
 ### 1c. Read the user's answer
 
 Use these rules to find the selected items in the user's message or answer:
 
 1. If the text contains checklist lines, select each line that starts with `- [x]` or `- [X]`. Ignore each line that starts with `- [ ]`. Do not use rules 2 to 5.
-2. Each complete number from 0 to 14 selects that item. A number is complete when no digit comes directly before or after it. Thus `10` selects item 10 only.
+2. Each complete number from 0 to 15 selects that item. A number is complete when no digit comes directly before or after it. Thus `10` selects item 10 only.
 3. Each item name from the Picker list selects that item. Compare names without case. The text "(plugin)" is not necessary. Thus "design" selects item 12, and "typescript clean code" selects item 1.
-4. The number `0` and the complete words `all` and `everything` select all items 1 to 14. This occurs only if rules 2 and 3 find no other item. Example: "install all" selects all items. "install all the Python skills" selects item 2 only. If you are not sure, ask the user.
+4. The number `0` and the complete words `all` and `everything` select all items 1 to 15. This occurs only if rules 2 and 3 find no other item. Example: "install all" selects all items. "install all the Python skills" selects item 2 only. If you are not sure, ask the user.
 5. Ignore other words, for example "install", "please", "and", "the" and "skills".
-6. If a number is larger than 14, or a name is almost the same as an item name, do not guess. Tell the user which part did not match. Ask the user if you can install only the items that did match, or if the user wants to answer again.
+6. If a number is larger than 15, or a name is almost the same as an item name, do not guess. Tell the user which part did not match. Ask the user if you can install only the items that did match, or if the user wants to answer again.
 
 ### 1d. Tell the user the items
 
@@ -142,6 +144,7 @@ The `<clone>` value is the repo name with `/` changed to `__`. Example: `ertugru
 | 4 | thermo-nuclear-code-quality-review | cursor/plugins | thermos/skills/thermo-nuclear-code-quality-review |
 | 13 | security-audit | cloudflare/security-audit-skill | skills/security-audit |
 | 14 | building-with-ai | nnabil-prog/ai-skills-kit | skills/building-with-ai |
+| 15 | click-path-audit | nnabil-prog/ai-skills-kit | skills/click-path-audit |
 | 5 | impeccable | pbakaus/impeccable | .claude/skills/impeccable |
 | 6 | make-interfaces-feel-better | jakubkrehel/make-interfaces-feel-better | skills/make-interfaces-feel-better |
 | 7 | changelog-generator | ComposioHQ/awesome-claude-skills | changelog-generator |
