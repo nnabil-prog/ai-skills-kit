@@ -87,7 +87,7 @@ Use these rules to find the selected items in the user's message or answer:
 ### 1d. Tell the user the items
 
 1. Tell the user the list of items that you will install.
-2. If the user selected item 8 (asd-ste100), ask the user this question: "Do you want every Claude Code session to use the asd-ste100 skill?" Keep the answer for the "Extra step for asd-ste100".
+2. Items 8 (asd-ste100), 13 (security-audit), 14 (building-with-ai) and 15 (click-path-audit) have session rules. If the user selected one or more of them, ask which of them every Claude Code session must use. With Method A, ask one question with one option for each of these selected items, and let the user select more than one. With Method B, ask "Which of these skills must every Claude Code session use? Reply with the numbers, or 'none'." Keep the answer for the "Extra step: session rules".
 3. Go to Step 2.
 
 ## Step 2: Write one install script
@@ -160,14 +160,15 @@ Do this step only if the impeccable row wrote an OK line. Put it directly after 
 sh "${SKILLS_DIR:?}/impeccable/scripts/impeccable" --version >/dev/null 2>&1 || echo "NOTE: impeccable gets its helper engine on first use."
 ```
 
-### Extra step for asd-ste100 (item 8)
+### Extra step: session rules (items 8, 13, 14 and 15)
 
-You asked the user about this step in Step 1d. If the user said yes, put this step in the script after the asd-ste100 OK line. If the user said no, do not put it in the script.
+You asked the user about these rules in Step 1d. For each skill that the user selected there, put one rule step in the script, after the OK line of that skill. Do not add a rule for a skill that the user did not select there. Do not add a rule for a skill whose row did not write an OK line.
 
-The step: if `$HOME/.claude/CLAUDE.md` does not contain the text `asd-ste100`, add this text to the end of that file.
+Each rule step: if `$HOME/.claude/CLAUDE.md` does not contain the heading of the rule, add the rule to the end of that file. Put an empty line before the rule text. Create the file if it does not exist. The heading is the first line of the rule text. Write the rule text into the script with a quoted heredoc (`<<'RULE'`), so that the shell does not change it. Then write `echo "OK: session rule for <skill>"`.
+
+**Rule for asd-ste100 (item 8)**
 
 ```markdown
-
 ## Simplified Technical English (asd-ste100 skill)
 
 Load the `asd-ste100` skill and apply its rules before you write any text that another agent, a tool or a system will read, or that a person must act on without asking you. That includes:
@@ -178,6 +179,52 @@ Load the `asd-ste100` skill and apply its rules before you write any text that a
 - step-by-step instructions, runbooks and setup steps
 
 Do not apply it to creative or marketing copy.
+```
+
+**Rule for security-audit (item 13)**
+
+```markdown
+## Security review (security-audit skill)
+
+Load the `security-audit` skill before you do one of these tasks:
+
+- answer a security question
+- write or change code that handles authentication, permissions, secrets, tokens, payments or personal data
+- write or change code that reads input from users, files, the network or another process
+- write or change install scripts, CI files, dependency lists or deployment configuration
+- review code or a pull request
+
+Use guidance mode only. Do not run the full six-phase audit. Do not create audit files. Do these only when the user asks for an audit, a pen test or a full security review.
+```
+
+**Rule for building-with-ai (item 14)**
+
+```markdown
+## Tool and library choice (building-with-ai skill)
+
+Load the `building-with-ai` skill before you do one of these tasks:
+
+- add, remove or replace a dependency, library, UI component, icon set, font, chart, form tool or test tool
+- install or suggest an agent skill, plugin or MCP server
+- build a new screen, page, app or tool, or change the visual design of one
+- write product, marketing or UI copy
+- tell the user that a feature or a tool is complete
+
+Apply its "Operating rules" and "Safe, low-context skill adoption" sections to each of these tasks. Use its "Anti-slop quality gate" for UI work and its "Anti-slop editorial gate" for copy. Use its "Minimal delivery gate" before you report a feature as complete. Read only the index rows that the task needs.
+```
+
+**Rule for click-path-audit (item 15)**
+
+```markdown
+## Button and state checks (click-path-audit skill)
+
+Load the `click-path-audit` skill in these conditions:
+
+- the user reports that a button, a toggle or a form does nothing or gives the wrong result
+- you changed a shared state store, a context or a reducer that more than one control uses
+- you built or changed a page with buttons or forms, and you are about to report it as complete
+
+Audit only the page or the store that you changed. Do a full app audit only when the user asks for it.
 ```
 
 ## Step 5: Install the Python skills from Table 2 (item 2)

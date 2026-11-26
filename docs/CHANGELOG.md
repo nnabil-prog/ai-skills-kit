@@ -6,6 +6,8 @@ Changes to the AI Skills Kit that you can see on the site or in the installer.
 
 ### ✨ New
 
+- **Session rules**: When you install security-audit, building-with-ai, click-path-audit or asd-ste100, the installer asks if every Claude Code session must use it. If you say yes, it adds a short rule to your `~/.claude/CLAUDE.md`. It adds each rule only one time and keeps the text that is already in the file.
+
 - **click-path-audit**: Finds buttons that do not do what their label says. It traces each click through the state that it changes and finds actions that undo each other. From [affaan-m/ECC](https://github.com/affaan-m/ECC). Pick item 15 in the installer.
 
 - **building-with-ai**: A guide skill for choosing libraries, UI components, icons, fonts and agent skills. It checks licenses, keeps projects small and adds quality checks for UI and copy. Pick item 14 in the installer.

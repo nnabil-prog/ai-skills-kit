@@ -24,6 +24,9 @@ Use these skills for each task in this repo. Load each skill before you start th
 6. `security-review`: Load it before you commit a change to a command in `install-skills.md`. Users run these commands on their computers. The commands must clone only from the repos that they name. They must not run downloaded code without a check.
 7. `superpowers:systematic-debugging`: Load it when the site does not update, the install command fails or the page shows an error. Find the cause before you change a file.
 8. `superpowers:verification-before-completion`: Load it before you tell the user that you completed a change. Open the live site and make sure that the change shows there.
+9. `building-with-ai`: Load it before you add a skill or a plugin to the kit, and before you add a library, a font or an icon to `index.html`. Apply its "Safe, low-context skill adoption" section to each new skill. Read the skill, its license, its scripts and its network calls before you add it.
+10. `security-audit`: Load it in guidance mode before you add a skill or a plugin to the kit, and before you change a command in `install-skills.md`. Use it together with `security-review`.
+11. `click-path-audit`: Load it after you change a button, a link or the script in `index.html`. Make sure that each button does what its label says.
 
 ## Keep install-skills.md current
 
@@ -34,7 +37,8 @@ Use these skills for each task in this repo. Load each skill before you start th
 3. Add a row to Table 2 for a Python clean code skill that gets the `py-` prefix.
 4. Add a row to Table 3 for a plugin. Write the item number and each `claude plugin` command in sequence.
 5. If the new item needs an extra step after the copy, add an "Extra step for <name>" section under Step 4.
-6. Clone the repo into a temporary folder. Make sure that `SKILL.md` exists at the path that you wrote.
+6. If every Claude Code session must use the new skill, add a rule for it to "Extra step: session rules". Add its item number to the list in Step 1d and to the heading of that section. Use the same rule text as in `~/.claude/CLAUDE.md`, with "the user" in place of "Neil".
+7. Clone the repo into a temporary folder. Make sure that `SKILL.md` exists at the path that you wrote.
 
 When you remove a skill or a plugin from the kit, remove its row from `install-skills.md` in the same commit.
 
