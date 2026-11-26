@@ -8,6 +8,7 @@ This repo is the source of the public site https://nnabil-prog.github.io/ai-skil
 - `docs/install-skills.md`: the installer. A user drops it into any AI chat, or pastes the prompt from the page into Claude Code. The AI shows a checklist of the skills with an "All" option, then installs the selected items. This is the only installer. Do not add an install script.
 - `docs/CHANGELOG.md`: the list of changes that users can see.
 - `README.md`: the same text and tables as the page, in Markdown.
+- `skills/`: skills that this repo is the source for. `install-skills.md` clones them from `nnabil-prog/ai-skills-kit`. When you change one, copy the change to the same folder in `~/.claude/skills`.
 - `docs/.nojekyll`: stops GitHub Pages from changing the `.md` files. Do not remove it.
 
 ## Skills to use in this repo

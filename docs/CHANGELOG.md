@@ -2,6 +2,12 @@
 
 Changes to the AI Skills Kit that you can see on the site or in the installer.
 
+## 2026-11-26
+
+### ✨ New
+
+- **building-with-ai**: A guide skill for choosing libraries, UI components, icons, fonts and agent skills. It checks licenses, keeps projects small and adds quality checks for UI and copy. Pick item 14 in the installer.
+
 ## 2026-11-18
 
 ### ✨ New

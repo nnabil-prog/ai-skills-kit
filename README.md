@@ -14,7 +14,7 @@ In Claude Code you can paste the link instead:
 Follow https://nnabil-prog.github.io/ai-skills-kit/install-skills.md
 ```
 
-## Skills · 21
+## Skills · 22
 
 | Skill | What it does | Source |
 |---|---|---|
@@ -27,6 +27,7 @@ Follow https://nnabil-prog.github.io/ai-skills-kit/install-skills.md
 | make-interfaces-feel-better | UI polish details. | [jakubkrehel/make-interfaces-feel-better](https://github.com/jakubkrehel/make-interfaces-feel-better) |
 | changelog-generator | User-facing changelogs from git history. | [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) |
 | asd-ste100 | Rewrites instructions, prompts, error messages and status reports in Simplified Technical English so an agent or a person can't misread them. The installer can also add a rule to ~/.claude/CLAUDE.md so every session uses it. Its optional linter needs Python. | [danyuchn/asd-ste100-skill](https://github.com/danyuchn/asd-ste100-skill) |
+| building-with-ai | Rules for choosing libraries, UI components, icons, fonts and agent skills, with license checks, a curated library index and anti-slop quality checks for UI and copy. | [this repo](skills/building-with-ai/SKILL.md) |
 
 ## Plugins · 4 plugins · 32 skills
 
