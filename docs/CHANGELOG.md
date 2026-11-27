@@ -2,6 +2,12 @@
 
 Changes to the AI Skills Kit that you can see on the site or in the installer.
 
+## 2026-11-27
+
+### ✨ New
+
+- **Website rule**: The installer asks if every Claude Code session must check a website before it gives you steps for that website. If you say yes, Claude opens the page first, checks the menu path and the button names, and writes only what it saw. It uses read-only actions and never signs in for you.
+
 ## 2026-11-26
 
 ### ✨ New
