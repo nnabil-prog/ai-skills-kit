@@ -61,3 +61,13 @@ Keep these 4 files the same. Do all steps in one commit.
 ## Skills from a claude.ai account
 
 Do not list skills that come only from a claude.ai account. Do not add them to the page, `README.md` or `install-skills.md`.
+
+## Check the website before you write website steps
+
+Before you give Neil instructions for a website or a web console, open that exact page in Chrome and check it. Examples are GitHub settings and the GitHub Pages panel. Check the URL, the menu path, the names of the buttons and fields, and what shows after each action. Write only what you saw on the live page.
+
+1. Use read-only actions only. Do not click a control that saves, sends, deletes or changes data while you check.
+2. Use Neil's existing Chrome sessions. Never sign in for Neil. Close the tab when a page shows a secret.
+3. If you cannot open the page, tell Neil. Mark the instruction "not checked on the live page". Check it at the next chance.
+
+The installer offers the same rule to other users, in `install-skills.md`, "Website rule". Keep the two texts the same, except for the name of the user.

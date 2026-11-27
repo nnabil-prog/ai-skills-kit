@@ -88,7 +88,8 @@ Use these rules to find the selected items in the user's message or answer:
 
 1. Tell the user the list of items that you will install.
 2. Items 8 (asd-ste100), 13 (security-audit), 14 (building-with-ai) and 15 (click-path-audit) have session rules. If the user selected one or more of them, ask which of them every Claude Code session must use. With Method A, ask one question with one option for each of these selected items, and let the user select more than one. With Method B, ask "Which of these skills must every Claude Code session use? Reply with the numbers, or 'none'." Keep the answer for the "Extra step: session rules".
-3. Go to Step 2.
+3. Ask the user one more question: "Must every Claude Code session check a website before it gives you steps for that website?" This rule needs no skill. Ask it also when the user selected none of items 8, 13, 14 and 15. With Method A, you can add it as one more option in the question of item 2. Keep the answer for the "Extra step: session rules".
+4. Go to Step 2.
 
 ## Step 2: Write one install script
 
@@ -160,9 +161,11 @@ Do this step only if the impeccable row wrote an OK line. Put it directly after 
 sh "${SKILLS_DIR:?}/impeccable/scripts/impeccable" --version >/dev/null 2>&1 || echo "NOTE: impeccable gets its helper engine on first use."
 ```
 
-### Extra step: session rules (items 8, 13, 14 and 15)
+### Extra step: session rules (items 8, 13, 14 and 15, and the website rule)
 
 You asked the user about these rules in Step 1d. For each skill that the user selected there, put one rule step in the script, after the OK line of that skill. Do not add a rule for a skill that the user did not select there. Do not add a rule for a skill whose row did not write an OK line.
+
+If the user said yes to the website rule, put its rule step in the script before Step 7. Use `website rule` as the name in the OK line.
 
 Each rule step: if `$HOME/.claude/CLAUDE.md` does not contain the heading of the rule, add the rule to the end of that file. Put an empty line before the rule text. Create the file if it does not exist. The heading is the first line of the rule text. Write the rule text into the script with a quoted heredoc (`<<'RULE'`), so that the shell does not change it. Then write `echo "OK: session rule for <skill>"`.
 
@@ -225,6 +228,18 @@ Load the `click-path-audit` skill in these conditions:
 - you built or changed a page with buttons or forms, and you are about to report it as complete
 
 Audit only the page or the store that you changed. Do a full app audit only when the user asks for it.
+```
+
+**Website rule (no item)**
+
+```markdown
+## Check the website before you write website steps
+
+Before you give the user instructions for a website or a web console, or write them in a step-by-step window or a runbook, open that exact page in the browser and check it. Check the URL, the menu path, the names of the buttons and fields, and what shows after each action. Write only what you saw on the live page.
+
+1. Use read-only actions only. Do not click a control that saves, sends, deletes or changes data while you check.
+2. Use the user's existing browser sessions. Never sign in for the user. Close the tab when a page shows a secret.
+3. If you cannot open the page (a sign-in that only the user can do, the browser extension is off, or the page shows a secret), tell the user. Mark the instruction "not checked on the live page". Check it at the next chance.
 ```
 
 ## Step 5: Install the Python skills from Table 2 (item 2)
